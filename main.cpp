@@ -213,13 +213,13 @@ void update()
         1.0f);
 
 
-    m_model_matrix = glm::scale(m_model_matrix, scale_vector);
-    m_model_matrix = glm::rotate(m_model_matrix, glm::radians(m_triangle_rotate), glm::vec3(0.0f, 0.0f, 1.0f));
-    
-
-
     m_model_matrix2 = glm::rotate(m_model_matrix2, glm::radians(m_triangle_rotate), glm::vec3(0.0f, 0.0f, 1.0f));
     m_model_matrix2 = glm::translate(m_model_matrix2, glm::vec3(m_triangle_x, 0.0f, 0.0f));
+
+    m_model_matrix = glm::scale(m_model_matrix, scale_vector);
+    m_model_matrix = glm::rotate(m_model_matrix, glm::radians(m_triangle_rotate), glm::vec3(0.0f, 0.0f, 1.0f));
+    m_model_matrix = glm::translate(m_model_matrix2, glm::vec3(m_triangle_x, 0.0f, 0.0f));
+    m_model_matrix = glm::scale(m_model_matrix, scale_vector);
 }
 
 void draw_object(glm::mat4& object_model_matrix, GLuint& object_texture_id)
@@ -267,7 +267,7 @@ void shutdown()
 }
 
 /**
- Start here¡ªwe can see the general structure of a game loop without worrying too much about the details yet.
+ Start hereÂ¡Âªwe can see the general structure of a game loop without worrying too much about the details yet.
  */
 int main(int argc, char* argv[])
 {
